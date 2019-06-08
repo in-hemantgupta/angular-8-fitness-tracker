@@ -8,13 +8,16 @@ import {
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSortModule
 } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatDialogModule} from '@angular/material/dialog';
+
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { MatDialogModule} from '@angular/material/dialog';
         MatCardModule,
         MatSelectModule,
         MatProgressSpinnerModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTableModule,
+        MatSortModule
     ],
     exports: [MatButtonModule,
         MatIconModule,
@@ -48,7 +53,9 @@ import { MatDialogModule} from '@angular/material/dialog';
         MatCardModule,
         MatSelectModule,
         MatProgressSpinnerModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTableModule,
+        MatSortModule
     ]
 })
 

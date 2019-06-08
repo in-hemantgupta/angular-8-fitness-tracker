@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialog, matDialogAnimations } from '@angular/material';
 import { DialogYesNoComponent } from 'src/app/dialog-yes-no/dialog-yes-no.component';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { TrainingService } from '../training.service';
 
 
 @Component({
@@ -12,33 +13,40 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 export class CurrentTrainingComponent implements OnInit {
-  @Output() onExitTraining = new EventEmitter();
   progress = 0;
-  timer: number;
-  constructor(public dialog: MatDialog) { }
+  excercise = this.trainingService.getCurrentExcercise();
+  timer;
+  constructor(public dialog: MatDialog, private trainingService: TrainingService) { }
 
-  startOrResumeTimer(){
+  startOrResumeTimer() {
+    this.excercise = this.trainingService.getCurrentExcercise();
+    let step = this.excercise.duration / 100 * 1000;
     this.timer = setInterval(() => {
-      this.progress += 5;
-      if (this.timer >= 100) { clearInterval(this.timer); }
-    }, 1000);
+      this.progress += 1;
+      if (this.timer >= 100) { clearInterval(this.timer);
+        this.trainingService.completeExcercise();
+       }
+    }, step);
   }
   ngOnInit() {
     this.startOrResumeTimer();
   }
 
   stopTraining() {
-    let dialogResult = this.dialog.open(DialogYesNoComponent, {data:{
-      progress: this.progress
-    }});
+    let dialogResult = this.dialog.open(DialogYesNoComponent, {
+      data: {
+        progress: this.progress
+      }
+    });
     clearInterval(this.timer);
     dialogResult.afterClosed().subscribe(result => {
       console.log(result);
-      if (result == false){
+      if (result == false) {
         this.startOrResumeTimer();
       }
-      else{
-        this.onExitTraining.emit();
+      else {
+        this.trainingService.cancelExcercise(this.progress);
+
       }
     });
 

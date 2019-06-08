@@ -18,6 +18,7 @@ import { SidenavListComponent } from './Navigation/sidenav-list/sidenav-list.com
 import { HeaderComponent } from './Navigation/header/header.component';
 import { DialogYesNoComponent } from './dialog-yes-no/dialog-yes-no.component';
 import { AuthService } from './auth/auth.service';
+import { TrainingService } from './training/training.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { AuthService } from './auth/auth.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
   entryComponents:[DialogYesNoComponent]
 })
