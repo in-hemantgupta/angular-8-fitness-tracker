@@ -15,15 +15,15 @@ import { TrainingService } from '../training.service';
 export class CurrentTrainingComponent implements OnInit {
   progress = 0;
   excercise = this.trainingService.getCurrentExcercise();
-  timer;
+  timer: number;
   constructor(public dialog: MatDialog, private trainingService: TrainingService) { }
 
   startOrResumeTimer() {
     this.excercise = this.trainingService.getCurrentExcercise();
-    let step = this.excercise.duration / 100 * 1000;
+    let step = (this.excercise.duration / 100) * 1000;
     this.timer = setInterval(() => {
       this.progress += 1;
-      if (this.timer >= 100) { clearInterval(this.timer);
+      if (this.progress >= 100) { clearInterval(this.timer);
         this.trainingService.completeExcercise();
        }
     }, step);

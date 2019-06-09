@@ -1,1 +1,2 @@
-.current-training{padding:20px}
+.current-training{padding:20px;text-align: center;}
+mat-progress-spinner{margin:10px auto;}
