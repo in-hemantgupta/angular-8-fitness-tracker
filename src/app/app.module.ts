@@ -19,6 +19,7 @@ import { HeaderComponent } from './Navigation/header/header.component';
 import { DialogYesNoComponent } from './dialog-yes-no/dialog-yes-no.component';
 import { AuthService } from './auth/auth.service';
 import { TrainingService } from './training/training.service';
+import { AngularFireAppModule } from './angular-fire.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TrainingService } from './training/training.service';
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAppModule
   ],
   providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
