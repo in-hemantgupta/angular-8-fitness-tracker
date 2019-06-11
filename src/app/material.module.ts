@@ -9,7 +9,8 @@ import {
     MatToolbarModule,
     MatListModule,
     MatSelectModule,
-    MatSortModule
+    MatSortModule,
+    MatSnackBarModule
 } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -39,7 +40,8 @@ import {MatTableModule} from '@angular/material/table';
         MatDialogModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatSnackBarModule
     ],
     exports: [MatButtonModule,
         MatIconModule,
@@ -58,7 +60,8 @@ import {MatTableModule} from '@angular/material/table';
         MatDialogModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatSnackBarModule
     ]
 })
 

@@ -8,8 +8,9 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './new-training.component.html',
   styleUrls: ['./new-training.component.css']
 })
-export class NewTrainingComponent implements OnInit , OnDestroy{
+export class NewTrainingComponent implements OnInit, OnDestroy {
   excercises: Excercise[];
+  loadingExcercies: boolean = true;
   excercisesSubscription = new Subscription();
   selectedExcercise: Excercise;
   newTrainingForm = new FormGroup({
@@ -20,11 +21,17 @@ export class NewTrainingComponent implements OnInit , OnDestroy{
     this.excercisesSubscription = trainingService.excercisesChanged
       .subscribe((results: Excercise[]) => {
         this.excercises = results;
+        this.loadingExcercies = false;
       });
   }
 
   ngOnInit() {
+    this.fetchExcercises();
+  }
+
+  fetchExcercises() {
     this.trainingService.fetchAvailableExcercises();
+
   }
 
   ngOnDestroy(): void {
@@ -34,7 +41,7 @@ export class NewTrainingComponent implements OnInit , OnDestroy{
   }
 
   startNewTraining() {
-    console.log(this.newTrainingForm);
+    //console.log(this.newTrainingForm);
     if (this.newTrainingForm.valid)
       this.trainingService.startExcercise(this.newTrainingForm.value.selectedExcercise);
   }

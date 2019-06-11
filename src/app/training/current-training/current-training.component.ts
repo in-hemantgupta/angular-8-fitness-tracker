@@ -40,7 +40,7 @@ export class CurrentTrainingComponent implements OnInit {
     });
     clearInterval(this.timer);
     dialogResult.afterClosed().subscribe(result => {
-      console.log(result);
+      //console.log(result);
       if (result == false) {
         this.startOrResumeTimer();
       }

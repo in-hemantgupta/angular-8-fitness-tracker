@@ -8,6 +8,7 @@
       <input type="password" formControlName="password" id="password" required placeholder="Password" matInput minlength="6">
       <mat-error>Password should be 6 char long.</mat-error>
     </mat-form-field>
-    <button mat-raised-button type="submit" color='primary'>Login</button>
+    <button mat-raised-button *ngIf='!(showSpinner$ | async)' type="submit" color='primary'>Login</button>
+    <mat-spinner *ngIf="showSpinner$ | async"></mat-spinner>
   </form>
 </section>
