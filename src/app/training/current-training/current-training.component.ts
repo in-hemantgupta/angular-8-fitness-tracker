@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialog, matDialogAnimations } from '@angular/material';
-import { DialogYesNoComponent } from 'src/app/dialog-yes-no/dialog-yes-no.component';
+import { DialogYesNoComponent } from '../../../../src/app/dialog-yes-no/dialog-yes-no.component';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { TrainingService } from '../training.service';
 

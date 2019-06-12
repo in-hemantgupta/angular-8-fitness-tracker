@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { UIService } from 'src/app/shared/ui.service';
+import { UIService } from '../../../../src/app/shared/ui.service';
 import { Subscription, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { State } from 'src/app/app-reducer';
+import { State } from '../../../../src/app/app-reducer';
 import { map } from 'rxjs/operators';
 
 @Component({

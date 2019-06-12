@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UIService } from 'src/app/shared/ui.service';
+import { UIService } from '../../../../src/app/shared/ui.service';
 import { Subscription, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import * as fromApp from 'src/app/app-reducer';
+import * as fromApp from '../../../../src/app/app-reducer';
 import { map } from 'rxjs/operators';
 
 @Component({
